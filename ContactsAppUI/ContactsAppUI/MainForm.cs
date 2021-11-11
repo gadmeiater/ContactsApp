@@ -12,7 +12,7 @@ using ContactsApp;
 namespace ContactsAppUI
 {
     public partial class MainForm : Form
-    {
+    {   
         public MainForm()
         {
             InitializeComponent();
@@ -20,7 +20,6 @@ namespace ContactsAppUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
