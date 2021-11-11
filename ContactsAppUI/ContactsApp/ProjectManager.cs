@@ -9,46 +9,59 @@ using Newtonsoft.Json;
 namespace ContactsApp
 {
     /// <summary>
-    /// статичный класс для записи в файл
+    /// Класс, реализующий сохранение данных в файл и загрузки из него.
     /// </summary>
-    public static class ProjectManager
+    public class ProjectManager
     {
         /// <summary>
-        /// метод сериализации
+        /// Стандартный путь к файлу.
         /// </summary>
-        /// <param name="data">объект класса Project</param>
-        /// <param name="filename">путь к файлу для записи</param>
-        public static void SaveToFile(Project data, string filename)
+        public static readonly string FilesDirectory = 
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
+            "\\ContactApp" + "\\ContactApp.txt";
+
+        /// <summary>
+        /// Метод, выполняющий запись в файл 
+        /// </summary>
+        /// <param name="contact">Экземпляр проекта для сериализации</param>
+        /// <param name="fileContactAppPath">Путь к файлу</param>
+        public static void SaveToFile(Project contact)
         {
-            JsonSerializer serializer = new JsonSerializer()
+            JsonSerializer serializer = new JsonSerializer();
+            var directoryFileContactApp = System.IO.Path.GetDirectoryName(FilesDirectory);
+
+            if (!System.IO.Directory.Exists(directoryFileContactApp))
             {
-                Formatting = Formatting.Indented,
-                TypeNameHandling = TypeNameHandling.All
-            };
-            using (StreamWriter sw = new StreamWriter(filename))
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, data);
+                Directory.CreateDirectory(directoryFileContactApp);
             }
 
-        }
-        /// <summary>
-        /// метод десериализации
-        /// </summary>
-        /// <param name="filename">путь к файлу</param>
-        /// <returns></returns>
-        public static Project LoadFromFile(string filename)
-        {
-            JsonSerializer serializer = new JsonSerializer()
+            if (!System.IO.File.Exists(FilesDirectory))
             {
-                Formatting = Formatting.Indented,
-                TypeNameHandling = TypeNameHandling.All
-            };
-            using (StreamReader sr = new StreamReader(filename))
-            using (JsonReader reader = new JsonTextReader(sr))
-            {
-                return (Project)serializer.Deserialize<Project>(reader);
+                File.Create(FilesDirectory).Close();
             }
+            using (StreamWriter sw = new StreamWriter(FilesDirectory))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, contact);
+            }
+        }
+
+        /// <summary>
+        /// Метод, выполняющий чтение из файла 
+        /// </summary>
+        public static Project LoadFromFile()
+        {
+            Project project = new Project();
+            JsonSerializer serializer = new JsonSerializer();
+            if (System.IO.File.Exists(FilesDirectory))
+            {
+                using (StreamReader sr = new StreamReader(FilesDirectory))
+                using (JsonReader reader = new JsonTextReader(sr))
+                { 
+                    project = (Project)serializer.Deserialize<Project>(reader);
+                }
+            }
+            return project;
         }
     }
 }
