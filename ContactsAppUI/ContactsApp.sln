@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsAppUI", "ContactsAppUI\ContactsAppUI\ContactsAppUI.csproj", "{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp", "ContactsApp\ContactsApp.csproj", "{BA659BB3-DB88-4B2A-877C-E90BCF69EE18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp", "ContactsAppUI\ContactsApp\ContactsApp.csproj", "{BA659BB3-DB88-4B2A-877C-E90BCF69EE18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsAppUI", "ContactsAppUI\ContactsAppUI.csproj", "{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA659BB3-DB88-4B2A-877C-E90BCF69EE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BA659BB3-DB88-4B2A-877C-E90BCF69EE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA659BB3-DB88-4B2A-877C-E90BCF69EE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA659BB3-DB88-4B2A-877C-E90BCF69EE18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D0C1B3F-F0DE-4227-ADFA-4CD35840C275}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

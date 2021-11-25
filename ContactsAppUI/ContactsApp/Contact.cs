@@ -7,14 +7,33 @@ using System.Threading.Tasks;
 namespace ContactsApp
 {
     /// <summary>
-    /// Класс, содержащий 6 полей: фамилия, имя, номер тел, дата рождения, mail, IDвк
+    /// Класс, содержащий 6 полей
     /// </summary>
-    public class Contact
+    public class Contact :ICloneable
     {
+        /// <summary>
+        /// Фамилия 
+        /// </summary>
         private string _lastname;
+
+        /// <summary>
+        /// Имя
+        /// </summary>
         private string _name;
-        private DateTime _birthdate;
+
+        /// <summary>
+        /// День рождения
+        /// </summary>
+        private DateTime _dateOfBirth;
+
+        /// <summary>
+        /// Почта
+        /// </summary>
         private string _email;
+
+        /// <summary>
+        /// Айди Вконтакте
+        /// </summary>
         private string _vkid;
 
         //Автосвойтсво для поля Phone
@@ -25,7 +44,10 @@ namespace ContactsApp
         /// </summary>
         public string Lastname
         {
-            get { return _lastname; }
+            get 
+            { 
+                return _lastname; 
+            }
             set
             {
                 if (value.Length > 50)
@@ -46,7 +68,10 @@ namespace ContactsApp
         /// </summary>
         public string Name
         {
-            get { return _name; }
+            get 
+            { 
+                return _name; 
+            }
             set
             {
                 if (value.Length > 50)
@@ -55,20 +80,20 @@ namespace ContactsApp
                 }
                 else
                 {
-
                     _name = value;
-
                 }
             }
         }
 
-
         /// <summary>
         /// дата рождения контакта, год не может быть < 1900 и не может быть более текущей даты
         /// </summary>
-        public DateTime Birthdate
+        public DateTime dateOfBirth
         {
-            get { return _birthdate; }
+            get 
+            { 
+                return _dateOfBirth; 
+            }
             set
             {
                 if (value.Year < 1900 || value > DateTime.Now)
@@ -76,7 +101,7 @@ namespace ContactsApp
                     throw new ArgumentException("дата рождения должна быть в промежутке между 1900 и сейчас");
                 }
                 else
-                    _birthdate = value;
+                    _dateOfBirth = value;
             }
         }
 
@@ -85,7 +110,10 @@ namespace ContactsApp
         /// </summary>
         public string Email
         {
-            get { return _email; }
+            get 
+            { 
+                return _email; 
+            }
             set
             {
                 if (value.Length > 50)
@@ -104,7 +132,10 @@ namespace ContactsApp
         /// </summary>
         public string VKid
         {
-            get { return _vkid; }
+            get 
+            { 
+                return _vkid; 
+            }
             set
             {
                 if (value.Length > 15)
@@ -120,7 +151,7 @@ namespace ContactsApp
         
         public object Clone()
         {
-            return new Contact(phoneNumber, Lastname, Name, Birthdate, Email, VKid);
+            return new Contact(phoneNumber, Lastname, Name, dateOfBirth, Email, VKid);
         }
 
         /// <summary>
@@ -132,13 +163,14 @@ namespace ContactsApp
         /// <param name="birthdate"></param>
         /// <param name="email"></param>
         /// <param name="vkid"></param>
+        
         public Contact(Phone phone, string lastname, string name, DateTime birthdate,
             string email, string vkid)
         {
             phoneNumber = phone;
             _lastname = lastname;
             _name = name;
-            _birthdate = birthdate;
+            _dateOfBirth = birthdate;
             _email = email;
             _vkid = vkid;
 
