@@ -11,6 +11,6 @@ namespace ContactsApp
         /// <summary>
         /// Лист, который хранит в себе список контактов.
         /// </summary>
-        public List<Contact> contacts { get; set; } = new List<Contact>();
+        public List<Contact> Contacts { get; set; } = new List<Contact>();
     }
 }
