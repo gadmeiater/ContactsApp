@@ -16,7 +16,7 @@ namespace ContactsApp
         /// <summary>
         /// Стандартный путь к файлу.
         /// </summary>
-        public static readonly string FilesDirectory = 
+        public static readonly string FilesDirectory =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
             "\\ContactApp" + "\\ContactApp.txt";
 
@@ -51,17 +51,24 @@ namespace ContactsApp
         /// </summary>
         public static Project LoadFromFile()
         {
-            Project project = new Project();
-            JsonSerializer serializer = new JsonSerializer();
-            if (System.IO.File.Exists(FilesDirectory))
+            try
             {
-                using (StreamReader sr = new StreamReader(FilesDirectory))
-                using (JsonReader reader = new JsonTextReader(sr))
-                { 
-                    project = (Project)serializer.Deserialize<Project>(reader);
+                Project project = new Project();
+                JsonSerializer serializer = new JsonSerializer();
+                if (System.IO.File.Exists(FilesDirectory))
+                {
+                    using (StreamReader sr = new StreamReader(FilesDirectory))
+                    using (JsonReader reader = new JsonTextReader(sr))
+                    {
+                        project = (Project)serializer.Deserialize<Project>(reader);
+                    }
                 }
+                return project;
             }
-            return project;
+            catch
+            {
+                return new Project();
+            }
         }
     }
 }

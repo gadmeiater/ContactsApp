@@ -12,16 +12,23 @@ namespace ContactsApp
     /// </summary>
     public class Phone
     {
+        /// <summary>
+        /// Номер телефона
+        /// </summary>
         private long _number;
+
+        /// <summary>
+        /// Свойство для поля _number
+        /// </summary>
         public long Number
         {
-            get 
+            get
             {
-                return _number; 
+                return _number;
             }
             set
             {
-                if (value.ToString()[0] !='7')
+                if (value.ToString()[0] != '7')
                 {
                     throw new ArgumentException("Номер должен начинаться с 7");
                 }

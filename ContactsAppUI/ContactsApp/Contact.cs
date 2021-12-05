@@ -9,7 +9,7 @@ namespace ContactsApp
     /// <summary>
     /// Класс, содержащий 6 полей
     /// </summary>
-    public class Contact :ICloneable
+    public class Contact : ICloneable
     {
         /// <summary>
         /// Фамилия 
@@ -37,16 +37,16 @@ namespace ContactsApp
         private string _vkid;
 
         //Автосвойтсво для поля Phone
-        public Phone phoneNumber { get; set; } 
+        public Phone phoneNumber { get; set; }
 
         /// <summary>
         /// Фамилия контакта, ограничение в 50 символов
         /// </summary>
         public string Lastname
         {
-            get 
-            { 
-                return _lastname; 
+            get
+            {
+                return _lastname;
             }
             set
             {
@@ -54,12 +54,7 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("максимальное количество символов = 50");
                 }
-                else
-                {
-                    {
-                        _lastname = value;
-                    }
-                }
+                _lastname = value;
             }
         }
 
@@ -68,9 +63,9 @@ namespace ContactsApp
         /// </summary>
         public string Name
         {
-            get 
-            { 
-                return _name; 
+            get
+            {
+                return _name;
             }
             set
             {
@@ -78,10 +73,7 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("максимальное количество символов = 50");
                 }
-                else
-                {
-                    _name = value;
-                }
+                _name = value;
             }
         }
 
@@ -90,9 +82,9 @@ namespace ContactsApp
         /// </summary>
         public DateTime dateOfBirth
         {
-            get 
-            { 
-                return _dateOfBirth; 
+            get
+            {
+                return _dateOfBirth;
             }
             set
             {
@@ -100,8 +92,7 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("дата рождения должна быть в промежутке между 1900 и сейчас");
                 }
-                else
-                    _dateOfBirth = value;
+                _dateOfBirth = value;
             }
         }
 
@@ -110,9 +101,9 @@ namespace ContactsApp
         /// </summary>
         public string Email
         {
-            get 
-            { 
-                return _email; 
+            get
+            {
+                return _email;
             }
             set
             {
@@ -120,10 +111,7 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("максимальное количество символов = 50");
                 }
-                else
-                {
-                    _email = value;
-                }
+                _email = value;
             }
         }
 
@@ -132,9 +120,9 @@ namespace ContactsApp
         /// </summary>
         public string VKid
         {
-            get 
-            { 
-                return _vkid; 
+            get
+            {
+                return _vkid;
             }
             set
             {
@@ -142,13 +130,14 @@ namespace ContactsApp
                 {
                     throw new ArgumentException("максимальное количество символов = 15");
                 }
-                else
-                {
-                    _vkid = value;
-                }
+                _vkid = value;
             }
         }
-        
+
+        /// <summary>
+        /// Метод, который возвращает копию объекта
+        /// </summary>
+        /// <returns></returns>
         public object Clone()
         {
             return new Contact(phoneNumber, Lastname, Name, dateOfBirth, Email, VKid);
@@ -163,7 +152,7 @@ namespace ContactsApp
         /// <param name="birthdate"></param>
         /// <param name="email"></param>
         /// <param name="vkid"></param>
-        
+
         public Contact(Phone phone, string lastname, string name, DateTime birthdate,
             string email, string vkid)
         {
@@ -173,7 +162,6 @@ namespace ContactsApp
             _dateOfBirth = birthdate;
             _email = email;
             _vkid = vkid;
-
         }
 
         /// <summary>
