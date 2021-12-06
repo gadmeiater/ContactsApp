@@ -37,7 +37,7 @@ namespace ContactsApp
         private string _vkid;
 
         //Автосвойтсво для поля Phone
-        public Phone phoneNumber { get; set; }
+        public Phone PhoneNumber { get; set; }
 
         /// <summary>
         /// Фамилия контакта, ограничение в 50 символов
@@ -140,7 +140,7 @@ namespace ContactsApp
         /// <returns></returns>
         public object Clone()
         {
-            return new Contact(phoneNumber, Lastname, Name, dateOfBirth, Email, VKid);
+            return new Contact(PhoneNumber, Lastname, Name, dateOfBirth, Email, VKid);
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace ContactsApp
         public Contact(Phone phone, string lastname, string name, DateTime birthdate,
             string email, string vkid)
         {
-            phoneNumber = phone;
+            PhoneNumber = phone;
             _lastname = lastname;
             _name = name;
             _dateOfBirth = birthdate;
