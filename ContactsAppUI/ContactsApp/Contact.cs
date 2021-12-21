@@ -36,7 +36,9 @@ namespace ContactsApp
         /// </summary>
         private string _vkid;
 
-        //Автосвойтсво для поля Phone
+        /// <summary>
+        /// Автосвойтсво для PhoneNumber
+        /// </summary>
         public Phone PhoneNumber { get; set; }
 
         /// <summary>

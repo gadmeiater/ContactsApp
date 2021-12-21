@@ -33,12 +33,12 @@ namespace ContactsApp
                     throw new ArgumentException("Номер должен начинаться с 7");
                 }
 
-                else if (value > 80000000000)
+                if (value > 80000000000)
                 {
                     throw new ArgumentException("Неверно, номер должен содежать 11 цифр");
                 }
 
-                else if (value < 70000000000)
+                if (value < 70000000000)
                 {
                     throw new ArgumentException("Неверно, номер должен содежать 11 цифр");
                 }
