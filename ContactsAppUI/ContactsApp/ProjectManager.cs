@@ -18,7 +18,7 @@ namespace ContactsApp
         /// </summary>
         public static readonly string FilesDirectory =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-            "\\ContactApp" + "\\ContactApp.txt";
+            "\\ContactApp" + "\\ContactApp.notes";
 
         /// <summary>
         /// Метод, выполняющий запись в файл 
