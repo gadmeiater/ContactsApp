@@ -16,9 +16,13 @@ namespace ContactsApp
         /// <summary>
         /// Стандартный путь к файлу.
         /// </summary>
-        public static readonly string FilesDirectory =
-            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-            "\\ContactApp" + "\\ContactApp.notes";
+        private static readonly string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+        + "\\ContactsApp\\";
+
+        /// <summary>
+        /// Константа, указывающая имя файла
+        /// </summary>
+        private static readonly string FileName = "ContactsApp.json";
 
         /// <summary>
         /// Метод, выполняющий запись в файл 
@@ -28,18 +32,18 @@ namespace ContactsApp
         public static void SaveToFile(Project contact)
         {
             JsonSerializer serializer = new JsonSerializer();
-            var directoryFileContactApp = System.IO.Path.GetDirectoryName(FilesDirectory);
+            var directoryFileContactApp = System.IO.Path.GetDirectoryName(FolderPath);
 
-            if (!System.IO.Directory.Exists(directoryFileContactApp))
+            if (!System.IO.Directory.Exists(FolderPath))
             {
-                Directory.CreateDirectory(directoryFileContactApp);
+                Directory.CreateDirectory(FolderPath);
             }
 
-            if (!System.IO.File.Exists(FilesDirectory))
+            if (!System.IO.File.Exists(FolderPath+FileName))
             {
-                File.Create(FilesDirectory).Close();
+                File.Create(FolderPath + FileName).Close();
             }
-            using (StreamWriter sw = new StreamWriter(FilesDirectory))
+            using (StreamWriter sw = new StreamWriter(FolderPath + FileName))
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 serializer.Serialize(writer, contact);
@@ -55,9 +59,9 @@ namespace ContactsApp
             {
                 Project project = new Project();
                 JsonSerializer serializer = new JsonSerializer();
-                if (System.IO.File.Exists(FilesDirectory))
+                if (System.IO.File.Exists(FolderPath + FileName))
                 {
-                    using (StreamReader sr = new StreamReader(FilesDirectory))
+                    using (StreamReader sr = new StreamReader(FolderPath + FileName))
                     using (JsonReader reader = new JsonTextReader(sr))
                     {
                         project = (Project)serializer.Deserialize<Project>(reader);
