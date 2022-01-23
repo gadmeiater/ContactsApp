@@ -9,7 +9,7 @@ namespace ContactsApp
     /// <summary>
     /// Класс, содержащий 6 полей
     /// </summary>
-    public class Contact : ICloneable
+    public class Contact : ICloneable, IComparable<Contact>
     {
         /// <summary>
         /// Фамилия 
@@ -39,7 +39,7 @@ namespace ContactsApp
         /// <summary>
         /// Автосвойтсво для PhoneNumber
         /// </summary>
-        public Phone PhoneNumber { get; set; }
+        public Phone PhoneNumber { get; set; } = new Phone();
 
         /// <summary>
         /// Фамилия контакта, ограничение в 50 символов
@@ -143,6 +143,10 @@ namespace ContactsApp
         public object Clone()
         {
             return new Contact(PhoneNumber, Lastname, Name, dateOfBirth, Email, VKid);
+        }
+        public int CompareTo(Contact other)
+        {
+            return other == null ? 1 : String.Compare(_lastname, other._lastname, StringComparison.Ordinal);
         }
 
         /// <summary>

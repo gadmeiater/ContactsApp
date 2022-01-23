@@ -8,8 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ContactsAppUI
+namespace ContactsApp
 {
+    /// <summary>
+    /// Класс формы About
+    /// </summary>
     public partial class AboutForm : Form
     {
         public AboutForm()
