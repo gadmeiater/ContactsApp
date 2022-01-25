@@ -24,7 +24,7 @@ namespace ContactsApp
         public MainForm()
         {
             InitializeComponent();
-            _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
+            _project = ProjectManager.LoadFromFile(ProjectManager.FilePath);
             _project.Contacts.Sort();
             listBox1.DataSource = _project.Contacts;
             listBox1.DisplayMember = "Lastname";
@@ -72,7 +72,7 @@ namespace ContactsApp
                 var contact = newForm.Contact;
                 _project.Contacts.Add(contact);
                 _project.Contacts.Sort();
-                ProjectManager.SaveToFile(_project, ProjectManager.stringMyDocumentsPath);
+                ProjectManager.SaveToFile(_project, ProjectManager.FilePath);
 
                 listBox1.DataSource = null;
                 listBox1.DataSource = _project.Contacts;
@@ -99,7 +99,7 @@ namespace ContactsApp
             if(resultOfDialog == DialogResult.OK)
             {
                 _project.Contacts[listBox1.SelectedIndex] = newForm.Contact;
-                ProjectManager.SaveToFile(_project, ProjectManager.stringMyDocumentsPath);
+                ProjectManager.SaveToFile(_project, ProjectManager.FilePath);
                 UpdateListBox();
             }
 
@@ -125,7 +125,7 @@ namespace ContactsApp
                 if (result == DialogResult.OK)
                 {
                     _project.Contacts.RemoveAt(index);
-                    ProjectManager.SaveToFile(_project, ProjectManager.stringMyDocumentsPath);
+                    ProjectManager.SaveToFile(_project, ProjectManager.FilePath);
                     UpdateListBox();
                 }
                 
@@ -234,12 +234,12 @@ namespace ContactsApp
                 _project = Project.Sort(_project, textBox1.Text);
                 UpdateListBox();
 
-                _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
+                _project = ProjectManager.LoadFromFile(ProjectManager.FilePath);
             }
 
             else
             {
-                _project = ProjectManager.LoadFromFile(ProjectManager.stringMyDocumentsPath);
+                _project = ProjectManager.LoadFromFile(ProjectManager.FilePath);
                 UpdateListBox();
             }
         }

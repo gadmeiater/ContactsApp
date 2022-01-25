@@ -16,7 +16,7 @@ namespace ContactsApp
         /// <summary>
         /// Путь к файлу
         /// </summary>
-        public static readonly string stringMyDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+        public static readonly string FilePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
             + "\\ContactsApp" + "\\ContactsApp.json";
 
         /// <summary>
